@@ -47,6 +47,7 @@ class QueryConverter(project: Project, toolWindow: ToolWindow?): JPanel() {
 
         closeBtn?.addActionListener{
             toolWindow?.hide(null);
+            // test
         }
 
     }
