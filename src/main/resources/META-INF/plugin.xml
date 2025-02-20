@@ -1,0 +1,27 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>org.jetbrains.plugins.template</id>
+    <name>query-converter</name>
+    <vendor>JetBrains</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MyBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="org.jetbrains.plugins.template.toolWindow.QueryToolWindowFactory" id="QueryToolWindow" anchor="right"/>
+    </extensions>
+    <actions>
+        <!-- 오른쪽 툴바에 버튼 추가 -->
+        <action id="ConveryQueryAction"
+                class="org.jetbrains.plugins.template.actions.ConveryQueryAction"
+                text="convert-query"
+                description="쿼리에 파라미터 바인딩">
+            <add-to-group group-id="MainToolbarRight" anchor="last"/>
+        </action>
+    </actions>
+
+    <applicationListeners>
+        <listener class="org.jetbrains.plugins.template.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
+    </applicationListeners>
+</idea-plugin>
